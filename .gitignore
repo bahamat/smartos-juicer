@@ -1,0 +1,6 @@
+build-info
+proto_root
+*tar.gz
+*tgz
+*tar.bz2
+*tar.xz
