@@ -1,5 +1,5 @@
 NAME=cfengine
-VERSION=3.4.4
+VERSION=3.4.5
 EXT=tar.gz
 # $@ will evaluate to $(NAME)-$(VERSION).$(EXT)
 SOURCE=https://cfengine.com/source-code/download?file=$@
