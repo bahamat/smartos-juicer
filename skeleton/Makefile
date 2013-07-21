@@ -1,7 +1,8 @@
 NAME=name
 VERSION=1.2.3
-EXT=tar.gz
-# $@ will evaluate to $(NAME)-$(VERSION).$(EXT)
+REVISION=elf1
+UPSTREAM_FILENAME=$(NAME)-$(VERSION).tar.gz
+# $@ will evaluate to $(UPSTREAM_FILENAME)
 SOURCE=https://example.com/download/$@
 DEPENDS=openssl pcre libxml2
 
