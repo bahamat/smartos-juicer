@@ -9,6 +9,12 @@ You first need to install git, naturally. Then run clone and run `bmake`.
 
 Within each package directory, simply run `make` to create a SmartOS package.
 
+For creating your own new packages:
+
+1. `cp -r skeleton` to your new package name.
+2. Edit the `Makefile` as necessary.
+3. Run `make`.
+
 **Note:** I am not officially or unoffically involved with SmartOS in any way.
 I merely use it privately. Nothing in this repository is to be considered a
 "contribution" to SmartOS.
