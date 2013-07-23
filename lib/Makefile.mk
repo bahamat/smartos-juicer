@@ -18,11 +18,11 @@ $(NAME)-$(VERSION): $(UPSTREAM_FILENAME)
 	tar zxf $<
 
 $(NAME)-$(VERSION)/config.status: $(NAME)-$(VERSION)
-       cd $< ; ./configure $(CONFIGURE_OPTIONS)
-       gmake -C $<
+	cd $< ; ./configure $(CONFIGURE_OPTIONS)
+	gmake -C $<
 
 proto_root: $(NAME)-$(VERSION)/config.status
-       gmake -C $(NAME)-$(VERSION) install
+	gmake -C $(NAME)-$(VERSION) install
 
 packlist: proto_root
 	( cd $< ; find . -type f -or -type l | sort ) > $@
