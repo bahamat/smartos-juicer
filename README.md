@@ -1,6 +1,8 @@
 These are scripts that I use to build supplemental packages for [SmartOS][smartos].
 Hopefully this will never grow too large.
 
+See the current release information for [`pkgsrc`][pkgsrc]
+
 You first need to install git, naturally. Then run clone and run `bmake`.
 
     /opt/local/bin/pkgin -y install scmgit-base
@@ -20,3 +22,4 @@ I merely use it privately. Nothing in this repository is to be considered a
 "contribution" to SmartOS.
 
 [smartos]: http://smartos.org/
+[pkgsrc]: http://www.perkin.org.uk/posts/whats-new-in-pkgsrc-2013Q2.html
