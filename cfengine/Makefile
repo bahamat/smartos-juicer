@@ -1,6 +1,6 @@
 NAME=cfengine
 VERSION=3.4.5
-REVISION=elf4
+REVISION=elf5
 UPSTREAM_FILENAME=$(NAME)-$(VERSION).tar.gz
 # $@ will evaluate to $(UPSTREAM_FILENAME)
 SOURCE=https://cfengine.com/source-code/download?file=$@
@@ -16,6 +16,6 @@ POST_TARGET=$(manifests)
 
 include ../lib/Makefile.mk
 
-$(manifests): $(xml) proto_root
+$(MANIFEST_OUT)/%.xml: $(MANIFEST_IN)/%.xml proto_root
 	@mkdir -p $(MANIFEST_OUT)
 	cp $< $@
