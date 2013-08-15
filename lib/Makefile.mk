@@ -20,14 +20,18 @@ $(NAME)-$(VERSION): $(UPSTREAM_FILENAME)
 $(NAME)-$(VERSION)/config.status: $(NAME)-$(VERSION)
 	cd $< ; ./configure $(CONFIGURE_OPTIONS)
 	gmake -C $<
+	@touch $<
+	@touch $@
 
 proto_root: $(NAME)-$(VERSION)/config.status
 	gmake -C $(NAME)-$(VERSION) install
+	@touch $<
+	@touch $@
 
 packlist: proto_root
 	( cd $< ; find . -type f -or -type l | sort ) > $@
 
-$(PACKAGE): packlist comment description
+$(PACKAGE): packlist comment description $(POST_TARGET)
 	pkg_create -B ../build-info -I / -c comment -d description -f packlist -P "$(DEPENDS)" -p proto_root -U $@
 
 clean:
