@@ -28,10 +28,10 @@ proto_root: $(NAME)-$(VERSION)/config.status
 	@touch $<
 	@touch $@
 
-packlist: proto_root
+packlist: proto_root $(POST_TARGET)
 	( cd $< ; find . -type f -or -type l | sort ) > $@
 
-$(PACKAGE): packlist comment description $(POST_TARGET)
+$(PACKAGE): packlist comment description
 	pkg_create -B ../build-info -I / -c comment -d description -f packlist -P "$(DEPENDS)" -p proto_root -U $@
 
 clean:
