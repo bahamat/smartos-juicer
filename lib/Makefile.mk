@@ -12,7 +12,7 @@ dep:
 	pkgin -y install $(DEPENDS)
 
 $(UPSTREAM_FILENAME):
-	curl --progress-bar --output $@ "$(SOURCE)"
+	curl --location --progress-bar --output $@ "$(SOURCE)"
 
 $(NAME)-$(VERSION): $(UPSTREAM_FILENAME)
 	tar zxf $<
