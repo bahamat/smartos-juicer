@@ -21,5 +21,9 @@ For creating your own new packages:
 I merely use it privately. Nothing in this repository is to be considered a
 "contribution" to SmartOS.
 
+The basic procedure for this was adapted from [Creating local SmartOS Packages][smartos-pkgs] and [pkgssrc Binary Packages for Illumos][pkgsrc-for-illumos] by Jonathan Perkins.
+
 [smartos]: http://smartos.org/
 [pkgsrc]: http://www.perkin.org.uk/posts/whats-new-in-pkgsrc-2013Q2.html
+[smartos-pkgs]: http://www.perkin.org.uk/posts/creating-local-smartos-packages.html
+[pkgsrc-for-illumos]: http://www.perkin.org.uk/pages/pkgsrc-binary-packages-for-illumos.html
