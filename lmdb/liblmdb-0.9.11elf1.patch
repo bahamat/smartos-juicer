@@ -1,0 +1,26 @@
+--- mdb-mdb/libraries/liblmdb/Makefile.old	2014-01-15 17:09:48.000000000 +0000
++++ mdb-mdb/libraries/liblmdb/Makefile	2014-02-15 00:25:48.908855498 +0000
+@@ -23,7 +23,7 @@
+ CFLAGS	= $(THREADS) $(OPT) $(W) $(XCFLAGS)
+ LDLIBS	=
+ SOLIBS	=
+-prefix	= /usr/local
++prefix	= /opt/local
+ 
+ ########################################################################
+ 
+@@ -35,10 +35,10 @@
+ all:	$(ILIBS) $(PROGS)
+ 
+ install: $(ILIBS) $(IPROGS) $(IHDRS)
+-	for f in $(IPROGS); do cp $$f $(DESTDIR)$(prefix)/bin; done
+-	for f in $(ILIBS); do cp $$f $(DESTDIR)$(prefix)/lib; done
+-	for f in $(IHDRS); do cp $$f $(DESTDIR)$(prefix)/include; done
+-	for f in $(IDOCS); do cp $$f $(DESTDIR)$(prefix)/man/man1; done
++	for f in $(IPROGS); do cp $$f $(DESTDIR)$(prefix)/bin/; done
++	for f in $(ILIBS); do cp $$f $(DESTDIR)$(prefix)/lib/; done
++	for f in $(IHDRS); do cp $$f $(DESTDIR)$(prefix)/include/; done
++	for f in $(IDOCS); do cp $$f $(DESTDIR)$(prefix)/man/man1/; done
+ 
+ clean:
+ 	rm -rf $(PROGS) *.[ao] *.so *~ testdb
