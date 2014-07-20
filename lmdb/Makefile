@@ -20,21 +20,21 @@ export DESTDIR=$(PWD)/proto_root
 all: $(PACKAGE)
 
 $(LOCAL_FILENAME):
-	curl --location --progress-bar --output $@ "$(SOURCE)"
+	curl -k --location --progress-bar --output $@ "$(SOURCE)"
 
 $(SOURCE_DIR): $(LOCAL_FILENAME)
-	tar zxf $<
+	/opt/local/bin/tar zxf $<
 	patch -p 0 < $(NAME)-$(VERSION)$(REVISION).patch
 
 $(LIBLMDB_SO): $(SOURCE_DIR)
-	make -C $<
+	make prefix=/opt/local -C $<
 
 proto_root: $(LIBLMDB_SO)
 	mkdir -p $@/$(prefix)/bin/
 	mkdir -p $@/$(prefix)/lib/
 	mkdir -p $@/$(prefix)/include/
 	mkdir -p $@/$(prefix)/man/man1/
-	make -C $(SOURCE_DIR) install
+	make -C $(SOURCE_DIR) prefix=/opt/local DESTDIR=$(CURDIR)/proto_root/ install
 	@touch $<
 	@touch $@
 
