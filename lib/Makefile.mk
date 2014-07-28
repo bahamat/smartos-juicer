@@ -7,6 +7,7 @@ export LDFLAGS=-L/opt/local/lib -R/opt/local/lib
 export DESTDIR=$(PWD)/proto_root
 
 PACKAGE=$(NAME)-$(VERSION)$(REVISION).tgz
+SRCDIR?=$(NAME)-$(VERSION)
 
 all: $(PACKAGE)
 
@@ -17,17 +18,17 @@ dep:
 $(UPSTREAM_FILENAME):
 	$(CURL) $(CURLFLAGS) $@ "$(SOURCE)"
 
-$(NAME)-$(VERSION): $(UPSTREAM_FILENAME)
+$(SRCDIR): $(UPSTREAM_FILENAME)
 	tar zxf $<
 
-$(NAME)-$(VERSION)/config.status: $(NAME)-$(VERSION)
+$(SRCDIR)/config.status: $(SRCDIR)
 	cd $< ; ./configure $(CONFIGURE_OPTIONS)
 	gmake -C $<
 	@touch $<
 	@touch $@
 
-proto_root: $(NAME)-$(VERSION)/config.status
-	gmake -C $(NAME)-$(VERSION) install
+proto_root: $(SRCDIR)/config.status
+	gmake -C $(SRCDIR)  install
 	@touch $<
 	@touch $@
 
@@ -38,7 +39,7 @@ $(PACKAGE): packlist comment description
 	pkg_create -B ../build-info -I / -c comment -d description -f packlist -P "$(DEPENDS)" -p proto_root -U $@
 
 clean:
-	$(RM) -r $(NAME)-$(VERSION) proto_root packlist
+	$(RM) -r $(SRCDIR) proto_root packlist
 
 mrclean: clean
 	$(RM) -r $(UPSTREAM_FILENAME) $(PACKAGE)
