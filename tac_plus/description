@@ -1,0 +1,6 @@
+tac_plus is an event-driven TACACS+ daemon which utilizes the MAVIS
+backend for authentication and authorization (and may get its user
+data from various sources, including PAM, LDAP, RADIUS and
+ActiveDirectory; suitable schema files for OpenLDAP are included).
+Supported features include IPv6, single-connection and much more.
+

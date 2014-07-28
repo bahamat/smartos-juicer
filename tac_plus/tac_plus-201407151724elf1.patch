@@ -1,0 +1,24 @@
+diff -ur PROJECTS.orig//Makefile.inc PROJECTS//Makefile.inc
+--- PROJECTS.orig//Makefile.inc	Wed Apr 23 19:02:08 2014
++++ PROJECTS//Makefile.inc	Mon Jul 28 21:01:39 2014
+@@ -168,7 +168,7 @@
+ 		INSTALL = /usr/ucb/install
+ 	endif
+ 	ifeq ($(wildcard $(INSTALL)),)
+-		INSTALL = /usr/bin/install
++		INSTALL = /opt/local/bin/install
+ 	endif
+ 	LIB_MAVIS	= '$(LDOPT_R)$$ORIGIN/../lib'
+ endif
+diff -ur PROJECTS.orig//mavis/perl/mavis_tacplus_shadow.pl PROJECTS//mavis/perl/mavis_tacplus_shadow.pl
+--- PROJECTS.orig//mavis/perl/mavis_tacplus_shadow.pl	Mon May 27 15:36:44 2013
++++ PROJECTS//mavis/perl/mavis_tacplus_shadow.pl	Mon Jul 28 21:01:20 2014
+@@ -63,7 +63,7 @@
+
+ =cut
+
+-use lib '/usr/local/lib/mavis/';
++use lib '/opt/local/lib/mavis/';
+ use lib '/Users/marc/DEVEL/PROJECTS/mavis/perl/'; # REMOVE #
+
+ use strict;
