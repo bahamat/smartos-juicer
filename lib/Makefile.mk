@@ -1,3 +1,6 @@
+CURL=/opt/local/bin/curl
+CURLFLAGS=--location --progress-bar --output
+
 # Environemnt Variables
 export CPPFLAGS=-I/opt/local/include
 export LDFLAGS=-L/opt/local/lib -R/opt/local/lib
@@ -12,7 +15,7 @@ dep:
 	pkgin -y install $(DEPENDS)
 
 $(UPSTREAM_FILENAME):
-	curl --location --progress-bar --output $@ "$(SOURCE)"
+	$(CURL) $(CURLFLAGS) $@ "$(SOURCE)"
 
 $(NAME)-$(VERSION): $(UPSTREAM_FILENAME)
 	tar zxf $<
