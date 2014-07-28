@@ -1,5 +1,5 @@
 NAME=cfengine
-VERSION=3.6.0
+VERSION=3.6.1
 REVISION=elf1
 UPSTREAM_FILENAME=$(NAME)-$(VERSION).tar.gz
 # $@ will evaluate to $(UPSTREAM_FILENAME)
