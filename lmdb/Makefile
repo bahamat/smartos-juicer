@@ -47,5 +47,5 @@ $(PACKAGE): packlist comment description
 clean:
 	$(RM) -r mdb-mdb proto_root packlist
 
-mrclean: clean
+distclean: clean
 	$(RM) -r $(LOCAL_FILENAME) $(PACKAGE)

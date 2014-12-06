@@ -56,5 +56,5 @@ $(PACKAGE): packlist comment description
 clean:
 	$(RM) -r $(SRCDIR) proto_root packlist
 
-mrclean: clean
+distclean: clean
 	$(RM) -r $(UPSTREAM_FILENAME) $(PACKAGE)
