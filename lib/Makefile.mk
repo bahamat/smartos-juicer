@@ -19,7 +19,7 @@ $(UPSTREAM_FILENAME):
 	$(CURL) $(CURLFLAGS) $@ "$(SOURCE)"
 
 $(SRCDIR): $(UPSTREAM_FILENAME)
-	tar zxf $<
+	gtar zxf $<
 
 $(SRCDIR)/config.status: $(SRCDIR)
 	cd $< ; ./configure $(CONFIGURE_OPTIONS)
