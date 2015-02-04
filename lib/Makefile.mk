@@ -2,8 +2,9 @@ CURL=/opt/local/bin/curl
 CURLFLAGS=--location --progress-bar --output
 
 # Environemnt Variables
-export CPPFLAGS=-I/opt/local/include
-export LDFLAGS=-L/opt/local/lib -R/opt/local/lib
+export CFLAGS:=$(CFLAGS)
+export CPPFLAGS:=-I/opt/local/include $(CPPFLAGS)
+export LDFLAGS:=-L/opt/local/lib -R/opt/local/lib $(LDFLAGS)
 export DESTDIR=$(PWD)/proto_root
 
 PACKAGE=$(NAME)-$(VERSION)$(REVISION).tgz
