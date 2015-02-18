@@ -1,12 +1,14 @@
 NAME=cfengine
 VERSION=3.6.4
-REVISION=elf1
+REVISION=elf2
 UPSTREAM_FILENAME=$(NAME)-$(VERSION).tar.gz
 # $@ will evaluate to $(UPSTREAM_FILENAME)
 SOURCE=https://s3.amazonaws.com/cfengine.package-repos/tarballs/$@
-DEPENDS=libxml2 mysql-client openssl pcre postgresql93-client liblmdb
+DEPENDS=libxml2 openssl pcre liblmdb
 
-CONFIGURE_OPTIONS=--enable-static --with-libxml2=/opt/local
+CONFIGURE_OPTIONS+=--with-libxml2=/opt/local
+CONFIGURE_OPTIONS+=--without-postgresql --without-mysql
+
 
 MANIFEST_IN=manifests
 MANIFEST_OUT=proto_root/var/svc/manifest/application/management/cfengine
